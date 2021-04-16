@@ -26,6 +26,8 @@ RUN sudo apt update | tee -a /tmp/apt.log \
      git-lfs | tee -a /tmp/apt.log \
  && sudo rm -rf /var/lib/apt/lists/*
 
+ENV GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
+
 RUN pyenv install anaconda3-2020.11 \
  && pyenv global anaconda3-2020.11
 
