@@ -35,14 +35,14 @@ RUN bash -c "conda init bash"
 
 RUN zsh -c "conda init zsh"
 
-RUN conda config --add channels conda-forge
-RUN conda config --add channels pytorch
-RUN conda config --add channels intel
-
-RUN conda config --set channel_priority strict
-
 RUN conda update -y --all
 
 RUN jupyter-lab --generate-config
 
 RUN sed -i "s/# c.ServerApp.ip = 'localhost'/c.ServerApp.ip = '0.0.0.0'/g" /home/gitpod/.jupyter/jupyter_lab_config.py
+
+# RUN conda config --add channels conda-forge
+# RUN conda config --add channels pytorch
+# RUN conda config --add channels intel
+
+# RUN conda config --set channel_priority strict
